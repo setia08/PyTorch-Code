@@ -4,7 +4,7 @@ A hands-on notebook covering the fundamentals of [PyTorch](https://pytorch.org/)
 
 ## Contents
 
-`PyTorch_Basics.ipynb` walks through:
+### `PyTorch_Basics.ipynb`
 
 - **Setup** — checking the PyTorch version and GPU/CUDA availability
 - **Creating Tensors** — `empty`, `zeros`, `ones`, `rand`, `manual_seed`, `tensor`, `arange`, `linspace`, `eye`, `full`
@@ -15,6 +15,13 @@ A hands-on notebook covering the fundamentals of [PyTorch](https://pytorch.org/)
 - **Reduction Operations** — `sum`, `mean`, `median`, `prod`, `std`, `var`, `argmax`, `argmin`
 - **Matrix Operations** — `matmul`, `dot`, `transpose`, `det`, `inverse`, comparison operators
 - **Special Functions** — `log`, `exp`, `sqrt`, `sigmoid`, `softmax`, `relu`, and in-place variants (`add_`, `relu_`)
+
+### `PyTorch_On_GPU.ipynb`
+
+- **CUDA Basics** — checking `torch.cuda.is_available()`, creating tensors directly on the GPU, and moving tensors between CPU and GPU with `.to(device)`
+- **CPU vs GPU Benchmarking** — timing `matmul` on large tensors to compare performance
+- **Reshaping** — `unsqueeze` and `squeeze` for adding/removing dimensions
+- **NumPy Interop** — converting between tensors and NumPy arrays with `.numpy()` and `torch.from_numpy()`
 
 ## Requirements
 
@@ -35,7 +42,7 @@ Clone the repo and launch the notebook:
 ```bash
 git clone https://github.com/setia08/PyTorch-Code.git
 cd PyTorch-Code
-jupyter notebook PyTorch_Basics.ipynb
+jupyter notebook
 ```
 
 ## License
