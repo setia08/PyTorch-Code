@@ -1,6 +1,6 @@
 # PyTorch Basics
 
-A hands-on notebook covering the fundamentals of [PyTorch](https://pytorch.org/) tensors and operations — a personal learning reference for getting started with tensor computation before moving on to neural networks.
+Hands-on notebooks covering the fundamentals of [PyTorch](https://pytorch.org/) — tensors, GPU acceleration, autograd, and a full training pipeline — a personal learning reference for building up to neural networks.
 
 ## Contents
 
@@ -23,16 +23,30 @@ A hands-on notebook covering the fundamentals of [PyTorch](https://pytorch.org/)
 - **Reshaping** — `unsqueeze` and `squeeze` for adding/removing dimensions
 - **NumPy Interop** — converting between tensors and NumPy arrays with `.numpy()` and `torch.from_numpy()`
 
+### `Auto_Grad_Back.ipynb`
+
+- **Manual Gradients** — computing gradients of a binary cross-entropy loss by hand via the chain rule
+- **Autograd** — the same computation using `requires_grad=True` and `loss.backward()`
+- **Gradient Management** — disabling tracking with `requires_grad_(False)` and `torch.no_grad()` to avoid gradient accumulation across passes
+
+### `pytorch_training_pipeline.ipynb`
+
+- **Data Preparation** — loading the Breast Cancer dataset with pandas, splitting with `train_test_split`, scaling with `StandardScaler`, and label encoding
+- **Tensor Conversion** — converting NumPy arrays to PyTorch tensors with `torch.from_numpy`
+- **Model From Scratch** — a simple neural network (`SimpleNN`) implemented with raw tensors, manual forward pass, and a loss function
+- **Training Loop** — gradient descent over multiple epochs using forward pass, loss computation, and manual weight updates
+
 ## Requirements
 
 - Python 3.x
 - [PyTorch](https://pytorch.org/get-started/locally/)
 - Jupyter Notebook / JupyterLab
+- pandas, scikit-learn (for `pytorch_training_pipeline.ipynb`)
 
 Install dependencies:
 
 ```bash
-pip install torch jupyter
+pip install torch jupyter pandas scikit-learn
 ```
 
 ## Usage
