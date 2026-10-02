@@ -36,9 +36,10 @@ Hands-on notebooks covering the fundamentals of [PyTorch](https://pytorch.org/) 
 - **Model From Scratch** — a simple neural network (`SimpleNN`) implemented with raw tensors, manual forward pass, and a loss function
 - **Training Loop** — gradient descent over multiple epochs using forward pass, loss computation, and manual weight updates
 
-### `NN_Module_updated.ipynb`
+### `NN_Module.ipynb` / `NN_Module_updated.ipynb`
 
 - **`nn.Module` Basics** — defining a model by subclassing `nn.Module`, using `nn.Linear` and `nn.Sigmoid`, and running a forward pass
+- **Model Summary** — inspecting the model with `torchinfo.summary`
 
 ### `pytorch_training_pipeline_using_nn_module.ipynb` / `pytorch_training_pipeline_using_nn_module_updated.ipynb`
 
@@ -61,12 +62,13 @@ Hands-on notebooks covering the fundamentals of [PyTorch](https://pytorch.org/) 
 - Python 3.x
 - [PyTorch](https://pytorch.org/get-started/locally/)
 - Jupyter Notebook / JupyterLab
-- pandas, scikit-learn (for `pytorch_training_pipeline.ipynb`)
+- pandas, scikit-learn (for the training pipeline notebooks)
+- torchinfo (for `NN_Module.ipynb` / `NN_Module_updated.ipynb`)
 
 Install dependencies:
 
 ```bash
-pip install torch jupyter pandas scikit-learn
+pip install torch jupyter pandas scikit-learn torchinfo
 ```
 
 ## Usage
