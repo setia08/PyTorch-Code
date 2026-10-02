@@ -36,6 +36,26 @@ Hands-on notebooks covering the fundamentals of [PyTorch](https://pytorch.org/) 
 - **Model From Scratch** — a simple neural network (`SimpleNN`) implemented with raw tensors, manual forward pass, and a loss function
 - **Training Loop** — gradient descent over multiple epochs using forward pass, loss computation, and manual weight updates
 
+### `NN_Module_updated.ipynb`
+
+- **`nn.Module` Basics** — defining a model by subclassing `nn.Module`, using `nn.Linear` and `nn.Sigmoid`, and running a forward pass
+
+### `pytorch_training_pipeline_using_nn_module.ipynb` / `pytorch_training_pipeline_using_nn_module_updated.ipynb`
+
+- Same end-to-end pipeline as `pytorch_training_pipeline.ipynb`, rebuilt with `torch.nn`:
+  - Model defined via `nn.Module` with `nn.Linear` + `nn.Sigmoid`
+  - Loss via `nn.BCELoss()` instead of a hand-written function
+  - Training loop using `torch.optim.SGD` for parameter updates
+  - Evaluation accuracy on the held-out test set
+
+### `Full_pytorch_training_pipeline_using_nn_module.ipynb`
+
+- The complete pipeline with batching via `torch.utils.data.Dataset` and `DataLoader`:
+  - Custom `Dataset` class wrapping the feature/label tensors
+  - Mini-batch training loop over a `DataLoader`
+  - Model, loss (`nn.BCELoss`), and optimizer (`SGD`) as above
+  - Evaluation loop computing accuracy over `test_loader` batches
+
 ## Requirements
 
 - Python 3.x
