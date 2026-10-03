@@ -57,6 +57,30 @@ Hands-on notebooks covering the fundamentals of [PyTorch](https://pytorch.org/) 
   - Model, loss (`nn.BCELoss`), and optimizer (`SGD`) as above
   - Evaluation loop computing accuracy over `test_loader` batches
 
+### `ANN_using_Pytorch.ipynb`
+
+- **Image Classification on MNIST** — a full artificial neural network pipeline on the MNIST digit dataset:
+  - Loading MNIST, visualizing a 4x4 grid of sample digits
+  - Scaling pixel values, `CustomDataset` + `DataLoader` for batching
+  - A multi-layer `nn.Sequential` model (`MyNN`) trained with `nn.CrossEntropyLoss` and SGD
+  - Evaluation accuracy on the test set
+  - Falls back to `sklearn.datasets.fetch_openml('mnist_784')` when run outside Google Colab (no bundled `sample_data` CSV)
+
+### `ANN_using_Pytorch_with_Dropout_and_others.ipynb`
+
+- The same MNIST ANN pipeline extended with regularization and GPU support:
+  - `nn.BatchNorm1d` and `nn.Dropout` layers between linear layers
+  - `weight_decay` (L2 regularization) on the optimizer
+  - GPU/CPU device handling — model and batches moved to `device` automatically
+  - `pin_memory=True` on the `DataLoader`s for faster host-to-GPU transfer
+
+### `ANN_using_Pytorch_with_Optuna.ipynb`
+
+- Hyperparameter tuning of the MNIST ANN with [Optuna](https://optuna.org/):
+  - A configurable `MyNN` built dynamically from `num_hidden_layers` / `neurons_per_layer`
+  - An `objective()` function searching over layer count, width, dropout, batch size, learning rate, weight decay, epochs, and optimizer (`Adam` / `SGD` / `RMSprop`)
+  - `optuna.create_study(direction="maximize")` + `study.optimize(...)` to find the best-performing configuration
+
 ## Requirements
 
 - Python 3.x
@@ -64,11 +88,13 @@ Hands-on notebooks covering the fundamentals of [PyTorch](https://pytorch.org/) 
 - Jupyter Notebook / JupyterLab
 - pandas, scikit-learn (for the training pipeline notebooks)
 - torchinfo (for `NN_Module.ipynb` / `NN_Module_updated.ipynb`)
+- matplotlib (for the MNIST ANN notebooks)
+- optuna (for `ANN_using_Pytorch_with_Optuna.ipynb`)
 
 Install dependencies:
 
 ```bash
-pip install torch jupyter pandas scikit-learn torchinfo
+pip install torch jupyter pandas scikit-learn torchinfo matplotlib optuna
 ```
 
 ## Usage
