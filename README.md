@@ -81,6 +81,30 @@ Hands-on notebooks covering the fundamentals of [PyTorch](https://pytorch.org/) 
   - An `objective()` function searching over layer count, width, dropout, batch size, learning rate, weight decay, epochs, and optimizer (`Adam` / `SGD` / `RMSprop`)
   - `optuna.create_study(direction="maximize")` + `study.optimize(...)` to find the best-performing configuration
 
+### `transfer_learning_fashion_mnist_pytorch_gpu (1).ipynb`
+
+- **Transfer Learning with VGG16** — fine-tuning a pretrained `torchvision.models.vgg16` on MNIST digits:
+  - Grayscale images converted to 3-channel and resized/cropped/normalized to ImageNet stats for VGG16
+  - Convolutional base frozen (`requires_grad = False`), classifier head replaced with a custom `nn.Sequential`
+  - Training/evaluation loop on GPU (or CPU fallback)
+  - Falls back to `sklearn.datasets.fetch_openml('mnist_784')` when run outside Google Colab
+
+### `RNN.ipynb`
+
+- **Simple RNN for Question Answering** — a single-word-answer QA model:
+  - Custom tokenizer, vocabulary built from a question/answer dataset
+  - `nn.Embedding` + `nn.RNN` + `nn.Linear` model (`SimpleRNN`) predicting one answer token
+  - Training loop and a `predict()` function for inference
+  - Falls back to a small built-in sample Q&A set when the bundled Colab dataset isn't present
+
+### `pytorch_lstm_next_word_predictor.ipynb`
+
+- **LSTM Next-Word Prediction** — trained on an inline text document (no external dataset):
+  - Tokenization with `nltk`, vocabulary and padded training sequences
+  - `nn.Embedding` + `nn.LSTM` + `nn.Linear` model (`LSTMModel`)
+  - Training loop with GPU support, a `prediction()` function, and multi-token text generation
+  - Accuracy evaluation over the full dataset
+
 ## Requirements
 
 - Python 3.x
@@ -90,11 +114,13 @@ Hands-on notebooks covering the fundamentals of [PyTorch](https://pytorch.org/) 
 - torchinfo (for `NN_Module.ipynb` / `NN_Module_updated.ipynb`)
 - matplotlib (for the MNIST ANN notebooks)
 - optuna (for `ANN_using_Pytorch_with_Optuna.ipynb`)
+- torchvision, pillow (for the transfer learning notebook)
+- nltk (for `pytorch_lstm_next_word_predictor.ipynb`)
 
 Install dependencies:
 
 ```bash
-pip install torch jupyter pandas scikit-learn torchinfo matplotlib optuna
+pip install torch jupyter pandas scikit-learn torchinfo matplotlib optuna torchvision pillow nltk
 ```
 
 ## Usage
